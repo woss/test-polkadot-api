@@ -8,8 +8,7 @@
     "start": "ts-node-dev --trace-warnings  --watch ./src --cls --respawn ./src/main.ts "
   },
   "dependencies": {
-    "@polkadot/api": "^2.10.2-5",
-    "@polkadot/api1": "^2.10.1"
+    "@polkadot/api": "^2.10.1"
   },
   "devDependencies": {
     "ts-node-dev": "^1.0.0",
