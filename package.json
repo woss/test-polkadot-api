@@ -1,0 +1,18 @@
+{
+  "name": "test-polkadot-api",
+  "author": "urn:pgp:E5645057B29E272A0E7857783A6C79F530FF78EA",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "ts-node-dev --trace-warnings  --watch ./src --cls --respawn ./src/main.ts "
+  },
+  "dependencies": {
+    "@polkadot/api": "^2.10.2-5",
+    "@polkadot/api1": "^2.10.1"
+  },
+  "devDependencies": {
+    "ts-node-dev": "^1.0.0",
+    "typescript": "^4.1.2"
+  }
+}
