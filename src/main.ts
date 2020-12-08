@@ -12,20 +12,6 @@ async function main() {
     types: customTypes,
   });
 
-  // Retrieve the chain name
-  //   const chain = await api.rpc.system.chain();
-
-  // Retrieve the latest header
-
-  //   await api.rpc.chain.subscribeNewHeads((lastHeader) => {
-  //     console.log(
-  //       `${chain}: last block #${lastHeader.number} has hash ${lastHeader.hash}`
-  //     );
-  //   });
-
-  // Do something
-  //   console.log("genesis hash", api.genesisHash.toHex());
-
   api.tx.balances
     .transfer(recipient, 123)
     .signAndSend(sender, ({ status, events }) => {
@@ -39,7 +25,9 @@ async function main() {
           // we know that data for system.ExtrinsicFailed is
           // (DispatchError, DispatchInfo)
           // ERROR: Property 'data' does not exist on type 'EventRecord'.ts(2339)
-          .forEach(({ data: [error, info] }) => {
+          .forEach(({ event }) => {
+            const { data } = event;
+            const [error, info] = data;
             if (error.isModule) {
               // for module errors, we have the section indexed, lookup
               const decoded = api.registry.findMetaError(error.asModule);
